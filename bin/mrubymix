@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# %% -*- ruby -*-
+
+require "#{File.dirname(__FILE__)}/../lib/mrubymix"
+
+if ARGV.length == 2
+  MrubyMix.mix(ARGV[0], ARGV[1])
+else
+  puts <<END
+mrubymix: a mruby source code preprocessor using Rails asset pipeline-like syntax.
+
+Usage:
+  mrubymix [source file name] [destination file name]
+
+Syntax:
+  You can add following lines in your source code(treated as comments by Ruby):
+
+  #= require aaa
+  Replace this line with the content of aaa.rb in the same directory as this file.
+
+  #= require ./foo/bar
+  Replace this line with the content of ./foo/bar relative to current file's path.
+
+  Note for the same file will only appear in the destination file once(at the first
+  occurrence location).
+END
+  exit 0
+end
+
