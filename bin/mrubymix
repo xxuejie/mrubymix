@@ -4,7 +4,7 @@
 require "#{File.dirname(__FILE__)}/../lib/mrubymix"
 
 if ARGV.length == 2
-  MrubyMix.mix(ARGV[0], ARGV[1])
+  MrubyMix::Processor.new(ARGV[0], ARGV[1]).mix
 else
   puts <<END
 mrubymix: a mruby source code preprocessor using Rails asset pipeline-like syntax.
