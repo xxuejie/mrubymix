@@ -59,7 +59,7 @@ module MrubyMix
     end
 
     def normalize_file_name(file_name, base_dir)
-      file_name = File.expand_path(file_name, base_dir)
+      file_name = File.expand_path(file_name, base_dir) unless file_name.start_with? "/"
       file_name <<= '.rb' unless file_name.end_with?('.rb')
       file_name
     end
